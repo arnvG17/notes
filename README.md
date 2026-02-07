@@ -36,22 +36,132 @@
 ### 2.1 Linear Regression ✅
 
 <details open>
-<summary><strong>Click to expand</strong></summary>
+# 🧠 Machine Learning – Regression (Conceptual Flow)
 
-**Problem Type:** Predict continuous values  
+---
 
-**Model:**
+## 🔁 Overall Regression Workflow
+
+- Raw Data
+- Choose Regression Type
+- Define Model (Hypothesis Function)
+- Choose Loss Function
+- Choose Optimizer
+- Train Model
+- Evaluate Performance
+- Handle Overfitting (if needed)
+
+---
+
+## 🧩 Core Components of a Regression Model
+
+- Model (Equation / Hypothesis)
+- Loss Function
+- Optimizer
+- Regularization
+- Evaluation Metric
+
+---
+
+## 📌 1. Types of Regression Models
+
+- **Linear Regression**
+  - Simple Linear Regression
+  - Multiple Linear Regression
+
+- **Polynomial Regression**
+
+- **Regularized Regression**
+  - Ridge Regression (L2)
+  - Lasso Regression (L1)
+
+- **Logistic Regression**
+  - (Used for classification)
+
+---
+
+## 📌 2. Hypothesis (Model) Functions
+
+### Linear Regression
 \[
-\hat{y} = \theta_0 + \theta_1 x
+\hat{y} = a_0 + a_1 x
 \]
 
-**Cost Function (MSE):**
+### Multiple Linear Regression
 \[
-MSE = \frac{1}{n}\sum (y - \hat{y})^2
+\hat{y} = a_0 + a_1 x_1 + a_2 x_2 + \dots + a_n x_n
+\]
+
+### Logistic Regression
+\[
+\hat{y} = \frac{1}{1 + e^{-z}}
+\quad \text{where } z = a_0 + a_1 x
+\]
+
+---
+
+## 📌 3. Loss Functions
+
+- Mean Squared Error (MSE)
+- Mean Absolute Error (MAE)
+- Log Loss (for Logistic Regression)
+
+### Mean Squared Error (MSE)
+\[
+MSE = \frac{1}{n} \sum (y - \hat{y})^2
 \]
 
 **Intuition:**  
-Draw the best straight line by minimizing error.
+Measures average squared distance between predicted and actual values.
+
+---
+
+## 📌 4. Optimization Algorithms
+
+- Batch Gradient Descent
+- Stochastic Gradient Descent
+- Mini-Batch Gradient Descent
+
+### Gradient Descent Update Rule
+\[
+\theta = \theta - \alpha \nabla J(\theta)
+\]
+
+---
+
+## 📌 5. Regularization Techniques
+
+- Ridge Regression (L2 Regularization)
+- Lasso Regression (L1 Regularization)
+
+### Ridge (L2)
+\[
+Loss = MSE + \lambda \sum \theta^2
+\]
+
+### Lasso (L1)
+\[
+Loss = MSE + \lambda \sum |\theta|
+\]
+
+---
+
+## 📌 6. Evaluation Metrics
+
+- Mean Squared Error (MSE)
+- R² Score
+- Accuracy (for classification)
+
+---
+
+## 🧠 One-Look Mental Model
+
+- Model → makes predictions
+- Loss → measures error
+- Gradient → gives direction
+- Optimizer → updates model
+- Regularization → controls complexity
+
 
 </details>
 
