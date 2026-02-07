@@ -1,59 +1,83 @@
-# Linear Regression
-
-Linear regression models the relationship between a dependent variable and one or more independent variables using a linear equation.
+# 📈 Linear Regression & Regularization
 
 ---
 
-## 📂 1. Types of Linear Regression
+## 🗺️ Visual Overview (Mind Map)
 
 ```mermaid
-graph LR
-    A["Linear Regression"] --> B["Simple Linear"]
-    A --> C["Multiple Linear"]
-    
-    B --- B1["1 Input (X) + 1 Target (Y)"]
-    C --- C1[">1 Input (Xn) + 1 Target (Y)"]
-    
-    B1 --- B2["Y = β0 + β1X + ε"]
-    C1 --- C2["Y = β0 + β1X1 + ... + βnXn + ε"]
+mindmap
+  root((Linear Regression & Regularization))
+    Linear Regression
+      Definition
+      Types
+        Simple: single input variable
+        Multiple: multiple input variables
+      Components
+    Model Optimization
+      Cost Function
+      Gradient Descent
+    Regularization Techniques
+      Purpose
+      Lasso Regression L1
+        Automatic feature selection
+        Shrinkage to central point
+      Ridge Regression L2
+        Prevents multicollinearity
+        Uses penalty variable alpha
+        Handles high correlation
+    Implementation Steps
 ```
 
 ---
 
-## 🛡️ 2. The 5 Key Assumptions
+## 📘 1. Linear Regression
+**Definition**: A statistical method to model the relationship between a dependent variable and one or more independent variables.
 
-Before training, your data should meet these criteria:
+### 📂 Types:
+- **Simple Linear Regression**: Involves a single input variable (feature) to predict the outcome.
+- **Multiple Linear Regression**: Uses two or more input variables for prediction.
 
-```mermaid
-graph TD
-    A["Assumptions"] --> B["Linearity"]
-    A --> C["Independence"]
-    A --> D["Homoscedasticity"]
-    A --> E["Normality"]
-    A --> F["No Multicollinearity"]
-
-    B --- B1["Relationship is a straight line"]
-    C --- C1["Residuals are independent"]
-    D --- D1["Constant variance of errors"]
-    E --- E1["Errors follow Normal Distribution"]
-    F --- F1["Inputs are not highly correlated"]
-```
+### 🧱 Components:
+- **Hypothesis**: $h_\theta(x) = \theta_0 + \theta_1x$
+- **Parameters**: $\theta_0$ (Intersept), $\theta_1$ (Slope/Weights).
 
 ---
 
-## ⚙️ 3. Mathematical Pipeline
+## ⚙️ 2. Model Optimization
 
-The flow from data to optimized model:
+### 📉 Cost Function
+Used to measure the error between predicted values and actual values. For Linear Regression, we typically use **Mean Squared Error (MSE)**.
 
-```mermaid
-graph TD
-    Data["Raw Data (X, Y)"] --> Hypo["Hypothesis: hθ(x) = θ0 + θ1x"]
-    Hypo --> Cost["Cost Function (MSE): J(θ)"]
-    Cost --> Opt["Optimizer: Gradient Descent"]
-    Opt --> Update["Update Params (θ)"]
-    Update -- "Minimize J(θ)" --> Hypo
-    Update --> Final["Optimized Model"]
-```
+### 🏃 Gradient Descent Types
+Gradient Descent is the optimization algorithm used to find the values of parameters ($\theta$) that minimize the cost function.
+
+| Type | Description | Pros | Cons |
+| :--- | :--- | :--- | :--- |
+| **Batch GD** | Uses the **entire dataset** to calculate the gradient for a single update. | Stable convergence / Smooth trajectory. | Very slow for large datasets; Memory intensive. |
+| **Stochastic GD (SGD)** | Updates parameters using **only one training example** at a time. | Fast; Can escape local minima due to noise. | Noisy updates; Never truly converges (oscillates). |
+| **Mini-Batch GD** | Updates parameters using a **small batch** (e.g., 32, 64) of data. | Balanced speed and stability; GPU optimized. | Requires tuning the batch size hyperparameter. |
+
+---
+
+## ⚖️ 3. Regularization Techniques
+**Purpose**: To prevent **overfitting** by adding a penalty term to the cost function, discouraging the model from becoming overly complex.
+
+### 🧶 Lasso Regression (L1)
+- **Feature Selection**: Can shrink some coefficients to exactly zero, effectively removing unimportant features.
+- **Shrinkage**: Pulls weights toward a central point (zero).
+
+### 🏔️ Ridge Regression (L2)
+- **Multicollinearity**: Heavily prevents issues where input variables are highly correlated.
+- **Penalty Variable ($\alpha$)**: Uses a tuning parameter to control the strength of the penalty.
+- **Correlation**: Handles high correlation by shrinking weights proportionally but rarely to zero.
+
+---
+
+## 🛠️ 4. Implementation Steps
+1. **Data Collection**: Gather relevant features and targets.
+2. **Preprocessing**: Handle missing values and perform **Normalization** (Feature Scaling).
+3. **Model Training**: Use Gradient Descent to optimize parameters.
+4. **Evaluation**: Test using metrics like R-Squared or MSE.
 
 ---
 

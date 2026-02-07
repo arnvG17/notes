@@ -9,10 +9,10 @@
 1. [Introduction](01-Introduction.md)
 2. Regression
    - [Regression Overview](02-Regression/README.md)
-   - [Linear Regression](02-Regression/Linear-Regression.md)
+   - [Linear Regression & Optimization](02-Regression/Linear-Regression.md)
    - [Logistic Regression](02-Regression/Logistic-Regression.md)
-   - [Gradient Descent](02-Regression/Gradient-Descent.md)
-   - [Regularization (Ridge & Lasso)](02-Regression/Regularization.md)
+   - [Gradient Descent](02-Regression/Linear-Regression.md#gradient-descent)
+   - [Regularization](02-Regression/Linear-Regression.md#regularization)
 3. [Decision Tree](03-Decision-Tree.md)
 4. [Ensemble Learning](04-Ensemble-Learning.md)
 5. [Bayesian Learning](05-Bayesian-Learning.md)
