@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTTP Error 404</title>
+</head>
+<body>
+
+<!-- OUTER BOX -->
+<div style="border:2px solid black; padding:15px; width:800px;">
+
+    <h2 style="color:red;">HTTP Error 404.0 - Not Found</h2>
+
+    <p>
+        The resource you are looking for has been removed, had its name changed,
+        or is temporarily unavailable.
+    </p>
+
+    <br>
+
+    <!-- FIRST INNER BOX -->
+    <div style="border:1px solid gray; padding:10px;">
+        <b>Most likely causes:</b>
+        <ul>
+            <li>The directory or file specified does not exist on the Web server.</li>
+            <li>The URL contains a typographical error.</li>
+            <li>
+                A custom filter or module, such as URLScan, restricts access
+                to the file.
+            </li>
+        </ul>
+    </div>
+
+    <br>
+
+    <!-- SECOND INNER BOX -->
+    <div style="border:1px solid gray; padding:10px;">
+        <b>Things you can try:</b>
+        <ul>
+            <li>Create the content on the Web server.</li>
+            <li>Review the browser URL.</li>
+            <li>
+                Create a tracing rule to track failed requests for this HTTP
+                status code and see which module is calling SetStatus.
+                For more information about creating a tracing rule for failed
+                requests, click <a href="#">here</a>.
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

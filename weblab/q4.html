@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML5 Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #666;
+            padding: 10px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #8B0000;
+            display: flex;
+            align-items: stretch;
+            height: 80px;
+        }
+
+        .logo {
+            background-color: #FFD700;
+            width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #8B0000;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        nav.main-nav ul {
+            display: flex;
+            list-style: none;
+            background-color: #4A6B8A;
+            height: 60px;
+            margin: 10px 0;
+        }
+
+        nav.main-nav li {
+            display: flex;
+            align-items: center;
+            padding: 0 25px;
+            color: white;
+            font-weight: bold;
+            border-right: 2px solid #3A5B7A;
+        }
+
+        nav.main-nav li:last-child {
+            background-color: #FFD700;
+            color: #8B0000;
+        }
+
+        .stars {
+            background-color: #4A6B8A;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .clock {
+            background-color: #4A6B8A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 30px;
+            margin: 10px;
+            margin-left: auto;
+        }
+
+        .clock-icon {
+            width: 40px;
+            height: 40px;
+            border: 3px solid white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .clock-icon::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 12px;
+            background: white;
+            transform-origin: bottom;
+            transform: translateX(-50%) translateY(-100%) rotate(45deg);
+        }
+
+        /* Main Styles */
+        main {
+            background-color: #FF8C00;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            min-height: 450px;
+        }
+
+        /* Left Article */
+        .products-article {
+            background-color: #FFD700;
+            flex: 2;
+            padding: 20px;
+            border: 3px solid #8B0000;
+        }
+
+        .products-article h2 {
+            color: #8B0000;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .products-article>p {
+            color: #8B0000;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background-color: #FF8C00;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 20px solid #FFD700;
+        }
+
+        section h3 {
+            color: #8B0000;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        section p {
+            color: #8B0000;
+            font-weight: bold;
+        }
+
+        /* Right Column */
+        .reviews-column {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        article.reviews {
+            background-color: #FFD700;
+            padding: 15px;
+            border: 3px solid #8B0000;
+        }
+
+        article.reviews h3 {
+            color: #8B0000;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        article.reviews p {
+            color: #333;
+            font-size: 14px;
+        }
+
+        aside.client-aside {
+            background-color: #FF8C00;
+            padding: 10px 15px;
+            margin-top: 10px;
+            min-height: 30px;
+        }
+
+        aside.press-aside {
+            background-color: #FF8C00;
+            padding: 10px 15px;
+        }
+
+        aside.press-aside h4 {
+            color: #8B0000;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        aside.press-aside p {
+            color: #333;
+            font-size: 12px;
+        }
+
+        /* Right Aside - About Industry */
+        aside.industry {
+            background-color: #8B0000;
+            color: white;
+            padding: 15px;
+            width: 120px;
+        }
+
+        aside.industry h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        aside.industry p {
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #228B22;
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        nav.footer-nav {
+            margin-left: 20px;
+        }
+
+        nav.footer-nav ul {
+            display: flex;
+            list-style: none;
+            background-color: #FFD700;
+            height: 35px;
+        }
+
+        nav.footer-nav li {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: #8B0000;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .follow-section {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .follow-section span {
+            background-color: #8B0000;
+            color: white;
+            padding: 8px 15px;
+            font-weight: bold;
+        }
+
+        .copyright {
+            background-color: #8B0000;
+            color: white;
+            padding: 8px 15px;
+            font-weight: bold;
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">LOGO</div>
+        <nav class="main-nav">
+            <ul>
+                <li>PRODUCTS</li>
+                <li>SHOPS</li>
+                <li>BLOG</li>
+            </ul>
+        </nav>
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <div class="clock">
+            <div class="clock-icon"></div>
+        </div>
+    </header>
+
+    <main>
+        <article class="products-article">
+            <h2>ALL ABOUT OUR PRODUCTS</h2>
+            <p>Summary</p>
+
+            <section>
+                <h3>USE 1 FOR OUR PRODUCTS</h3>
+                <p>Description</p>
+            </section>
+
+            <section>
+                <h3>USE 2 FOR OUR PRODUCTS</h3>
+                <p>Description</p>
+            </section>
+
+            <section>
+                <h3>USE 3 FOR OUR PRODUCTS</h3>
+                <p>Description</p>
+            </section>
+        </article>
+
+        <div class="reviews-column">
+            <article class="reviews">
+                <h3>SUPER CLIENT REVIEWS</h3>
+                <p>Client recommendations about the product</p>
+                <aside class="client-aside"></aside>
+            </article>
+
+            <article class="reviews">
+                <aside class="press-aside">
+                    <h4>WHAT THE PRESS SAY</h4>
+                    <p>Summary of independent journalist evaluation of the product (LINK)</p>
+                </aside>
+            </article>
+        </div>
+
+        <aside class="industry">
+            <h3>ABOUT OUR INDUSTRY</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <nav class="footer-nav">
+            <ul>
+                <li>JOBS</li>
+                <li>CONTACT</li>
+                <li>LEGAL</li>
+            </ul>
+        </nav>
+        <div class="follow-section">
+            <span>FOLLOW US:</span>
+        </div>
+        <div class="copyright">COPYRIGHT</div>
+    </footer>
+
+</body>
+
+</html>
